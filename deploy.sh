@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-REPO_PATH="/home/rsinema/App"  
+REPO_PATH="/home/rsinema/App/rag-client"  
 DOCKER_IMAGE_NAME="rag-client"     
 CONTAINER_NAME="rag-client-web"
 APP_PORT=8001                    
