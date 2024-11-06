@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-REPO_PATH="/home/rsinema/App/rag-client"  
-DOCKER_IMAGE_NAME="rag-client"     
+REPO_PATH="/home/rsinema/App/rag-client/client"  
+DOCKER_IMAGE_NAME="react-client"     
 CONTAINER_NAME="rag-client-web"
 APP_PORT=8001                    
 

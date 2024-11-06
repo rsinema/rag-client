@@ -11,3 +11,5 @@ Commands to develop locally:
 `npm install`
 
 `npm run dev`
+
+`docker run -p 8080:80 -d rag-client`

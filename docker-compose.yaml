@@ -1,0 +1,25 @@
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: fast-api-server
+    ports:
+      - "5001:5000"
+    environment:
+      - ENV_VAR=your_value
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: react-client-web
+    ports:
+        # port forwarding 8080 to 80 
+      - "8080:80"
+    environment:
+      - ENV_VAR=your_value
+    depends_on:
+      - server
+
+  # TODO add database container
