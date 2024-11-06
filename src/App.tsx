@@ -84,7 +84,7 @@ function App() {
           <div className="flex w-[90%] px-4 py-2 bg-zinc-900 rounded-full items-center mx-4 my-2">
             <input
               type="text"
-              placeholder="Message ChatGPT"
+              placeholder="Message Chatbot"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
