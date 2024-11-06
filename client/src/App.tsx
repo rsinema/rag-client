@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { getBotResponse } from "./api";
 
 function App() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
@@ -8,17 +9,18 @@ function App() {
   const [input, setInput] = useState("");
   const [currentUser, setCurrentUser] = useState("Brayden");
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim() === "") return;
 
     setMessages([...messages, { role: "user", content: input }]);
 
-    setTimeout(() => {
+    await getBotResponse(input).then((response) => {
+      const { bot_response } = response;
       setMessages((prevMessages) => [
         ...prevMessages,
-        { role: "bot", content: "This is a response from ChatGPT." },
+        { role: "bot", content: bot_response },
       ]);
-    }, 1000);
+    });
 
     setInput("");
   };
