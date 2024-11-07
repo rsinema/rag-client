@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
+from psycopg2 import connect
+from psycopg2.extras import RealDictCursor
+import os
 
 app = FastAPI()
 
@@ -16,6 +19,35 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+conn = None
+cursor = None
+
+@app.on_event("startup")
+def startup_event():
+    global conn, cursor
+    try:
+        conn = connect(
+            host=os.getenv("DATABASE_HOST", "db"),
+            database=os.getenv("DATABASE_NAME", "mydb"),
+            user=os.getenv("DATABASE_USER", "myuser"),
+            password=os.getenv("DATABASE_PASSWORD", "mypassword"),
+            cursor_factory=RealDictCursor
+        )
+        if conn:
+            print("Connected to the database successfully")
+        cursor = conn.cursor()
+    except Exception as e:
+        print(f"Error connecting to the database: {e}")
+    cursor = conn.cursor()
+
+@app.on_event("shutdown")
+def shutdown_event():
+    print("Shutting down the server")
+    if cursor:
+        cursor.close()
+    if conn:
+        conn.close()
+
 def embed_text(text: str) -> list[float]:
     # TODO: embed the text using huggingface model
     # there is a way to cache the model and the encoder
@@ -29,6 +61,7 @@ def generate_bot_response(text: str) -> str:
 
 @app.get("/")
 def read_root():
+    print("Hello World")
     return {"Hello": "World"}
 
 @app.get("/related-documents")
