@@ -28,12 +28,12 @@ if echo "$PULL_OUTPUT" | grep -q "Already up to date"; then
     log_message "No new changes detected, checking if services are running..."
     
     # Check if containers are running
-    if docker-compose ps | grep -q "Up"; then
+    if docker compose ps | grep -q "Up"; then
         log_message "Services are already running, no action needed"
         exit 0
     else
         log_message "Services not running, starting them..."
-        docker-compose up -d
+        docker compose up -d
         exit 0
     fi
 fi
