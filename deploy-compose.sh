@@ -40,7 +40,7 @@ fi
 
 # Build and start services
 log_message "Building and starting services..."
-docker-compose up -d --build
+docker compose up -d --build
 
 # Check if services are running
 if [ $? -ne 0 ]; then
@@ -50,7 +50,7 @@ fi
 
 # List running services
 log_message "Current running services:"
-docker-compose ps
+docker compose ps
 
 log_message "Deployment completed successfully"
 
