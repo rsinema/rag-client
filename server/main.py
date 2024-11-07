@@ -59,18 +59,30 @@ def generate_bot_response(text: str) -> str:
     bot_response = "This is a bot response"
     return bot_response
 
+def get_related_documents(embedded_text: list[float]) -> list[str]:
+    # Returns the related document segments as a list of strings
+
+    # TODO: get the related documents from the database using the embedded input text
+    # Option 1: Both the input text and the related documents are embedded with the same model. Easiest to implement but probably not the best results
+    # Option 2: Use a dual encoder model (siamese training) for the input text and the related documents to be compared in the same space. By far the hardest to implement but likely the best results
+    pass
+
 @app.get("/")
 def read_root():
     print("Hello World")
     return {"Hello": "World"}
 
-@app.get("/related-documents")
-def read_related_documents(user_input: str):
+# The main logic for the RAG system
+@app.get("/rag-inference")
+def trigger_rag(user_input: str):
     embedded_user_text = embed_text(user_input)
-    # TODO connect to the database and get the related documents given the user input
-    document_text = "This is a document text"
-    return {"related-documents": document_text}
+    related_documents = get_related_documents(embedded_text=embedded_user_text)
+    # TODO: could do more prompt engineering here 
+    augmented_text = user_input + " ".join(related_documents)
+    rag_bot_response = generate_bot_response(augmented_text)
+    return {"rag_bot_response": rag_bot_response}
 
+# The user can just call model inference API to get a direct bot response w/ no RAG
 @app.get("/model-inference")
 def read_bot_response(user_input: str):
     bot_response = generate_bot_response(user_input)

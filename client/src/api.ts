@@ -7,9 +7,9 @@ const api = axios.create({
     },
 });
 
-export const retrieveRelatedDocuments = async (input: any) => {
+export const triggerRAG = async (input: any) => {
     try {
-        const response = await api.get('/related-documents', {
+        const response = await api.get('/rag-inference', {
             params: { user_input: input }
         });
         return response.data;
