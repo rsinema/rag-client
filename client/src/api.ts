@@ -7,10 +7,10 @@ const api = axios.create({
     },
 });
 
-export const triggerRAG = async (input: any) => {
+export const triggerRAG = async (input: any, person: string) => {
     try {
         const response = await api.get('/rag-inference', {
-            params: { user_input: input }
+            params: { user_input: input, owner: person }
         });
         return response.data;
     } catch (error) {

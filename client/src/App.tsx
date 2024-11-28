@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
-import { getBotResponse } from "./api";
+import { triggerRAG } from "./api";
+import TypingBubble from "./TypingBubble";
 
 function App() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>(
@@ -8,21 +9,25 @@ function App() {
   );
   const [input, setInput] = useState("");
   const [currentUser, setCurrentUser] = useState("Brayden");
+  const [isTyping, setIsTyping] = useState(false);
 
   const handleSendMessage = async () => {
     if (input.trim() === "") return;
 
     setMessages([...messages, { role: "user", content: input }]);
+    const prompt = input;
+    setInput("");
 
-    await getBotResponse(input).then((response) => {
+    setIsTyping(true);
+
+    await triggerRAG(prompt, currentUser).then((response) => {
+      setIsTyping(false);
       const { bot_response } = response;
       setMessages((prevMessages) => [
         ...prevMessages,
         { role: "bot", content: bot_response },
       ]);
     });
-
-    setInput("");
   };
 
   return (
@@ -78,6 +83,7 @@ function App() {
               </div>
             </div>
           ))}
+          {isTyping && <TypingBubble />}
         </div>
 
         {/* Fixed Footer with Input Bar and Creator Text */}

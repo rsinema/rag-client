@@ -4,7 +4,7 @@ from pgvector.psycopg2 import register_vector
 
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
-conn = psycopg2.connect("dbname=mydb user=myuser password=mypassword host=localhost")
+conn = psycopg2.connect("dbname=mydb user=myuser password=mypassword host=localhost port=5430")
 cur = conn.cursor()
 register_vector(conn)
 

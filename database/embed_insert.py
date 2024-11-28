@@ -12,7 +12,7 @@ def main(file_path, chunk_size, doc_title, doc_owner):
     model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
     # PostgreSQL connection
-    conn = psycopg2.connect("dbname=mydb user=myuser password=mypassword host=localhost")
+    conn = psycopg2.connect("dbname=mydb user=myuser password=mypassword host=localhost port=5430")
     cur = conn.cursor()
     register_vector(conn)
 

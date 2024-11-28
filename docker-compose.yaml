@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: postgres-db
     ports:
-      - "5432:5432"
+      - "5430:5432"
     environment:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
@@ -21,7 +21,7 @@ services:
     ports:
       - "5001:5000"
     environment:
-      DATABASE_HOST: db # this is the name of the database container
+      DATABASE_HOST: db
       DATABASE_NAME: mydb
       DATABASE_USER: myuser
       DATABASE_PASSWORD: mypassword
