@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
 from psycopg2 import connect
@@ -6,6 +6,10 @@ from psycopg2.extras import RealDictCursor
 import os
 from transformers import AutoTokenizer, AutoModel, AutoModelForSeq2SeqLM
 import torch
+import httpx
+from typing import List, Dict
+from pydantic import BaseModel
+
 
 app = FastAPI()
 
@@ -13,14 +17,18 @@ origins = [
     "*",
 ]
 
-embedding_model_name = "sentence-transformers/all-MiniLM-L6-v2"
-embedding_tokenizer = AutoTokenizer.from_pretrained(embedding_model_name)
-embedding_model = AutoModel.from_pretrained(embedding_model_name)
+timeout = httpx.Timeout(
+    connect=60.0,  # time to establish a connection
+    read=60.0,     # time to wait for a response
+    write=20.0,    # time to wait for writing the request
+    pool=20.0      # time to wait for a connection from the connection pool
+)
 
-# Load the tokenizer and model for generating responses
-response_model_name = "facebook/blenderbot-400M-distill"
-response_tokenizer = AutoTokenizer.from_pretrained(response_model_name)
-response_model = AutoModelForSeq2SeqLM.from_pretrained(response_model_name)
+# LLM_API_URL = "https://100.78.249.37:5002" # Tailscale IP
+# LLM_API_URL = "https://172.22.104.182:5002" # Private IP
+# LLM_API_URL = "http://localhost:5002" # local host
+LLM_API_URL = "http://host.docker.internal:5002"
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,6 +40,12 @@ app.add_middleware(
 
 conn = None
 cursor = None
+
+class Message(BaseModel):
+    role: str
+    content: str
+
+conversations: Dict[str, List[Message]] = {}
 
 @app.on_event("startup")
 def startup_event():
@@ -60,18 +74,16 @@ def shutdown_event():
         conn.close()
 
 def embed_text(text: str) -> list[float]:
-    # embed the text using huggingface model
-    inputs = embedding_tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    outputs = embedding_model(**inputs)
-    embedded_text = outputs.last_hidden_state.mean(dim=1).squeeze().tolist()
-    return embedded_text
+    # Send the request to the external LLM server
+    response = httpx.post(f"{LLM_API_URL}/encode", json={"text": text}, verify=False, timeout=timeout)
+    response.raise_for_status()  # Raise an error for HTTP response codes >= 400
+    return response.json()
 
-def generate_bot_response(text: str) -> str:
-    # generate the response using the huggingface model
-    inputs = response_tokenizer(text, return_tensors="pt", truncation=True, padding=True)
-    outputs = response_model.generate(**inputs)
-    bot_response = response_tokenizer.decode(outputs[0], skip_special_tokens=True)
-    return bot_response
+def generate_bot_response(messages: List[Message]) -> str:
+    # Send a request to the `/generate` endpoint
+    response = httpx.post(f"{LLM_API_URL}/generate", json={"messages": [m.dict() for m in messages]}, verify=False, timeout=timeout)
+    response.raise_for_status()
+    return response.json().get("prediction", "")
 
 def get_related_documents(embedded_text: list[float], owner: str) -> list[str]:
     # Returns the related document segments as a list of strings
@@ -104,20 +116,54 @@ def read_root():
 
 # The main logic for the RAG system
 @app.get("/rag-inference")
-def trigger_rag(user_input: str, owner: str):
+def trigger_rag(user_input: str, owner: str, conversation_id: str):
     print("Running RAG Inference")
+
+    # Retrieve or create conversation history
+    if conversation_id == "" or conversation_id is None:
+        # Generate a new conversation ID
+        conversation_id = str(len(conversations) + 1)
+    if conversation_id not in conversations:
+        conversations[conversation_id] = []
+    
+    # Add user message to conversation
+    conversations[conversation_id].append(Message(role="user", content=user_input))
+
     embedded_user_text = embed_text(user_input)
     related_documents = get_related_documents(embedded_text=embedded_user_text, owner=owner)
-    # TODO: could do more prompt engineering here
-    augmented_text = user_input + " ".join(related_documents)
-    rag_bot_response = generate_bot_response(augmented_text)
-    return {"bot_response": rag_bot_response}
+
+    prompt = "You are a chatbot for a porfolio website. Here is revelant information according to what the user asked: "
+    context = prompt + " ".join(related_documents)
+    print("Context: ", context)
+    system_message = Message(role="system", content=f"Context: {context}")
+
+    messages_for_llm = [system_message] + conversations[conversation_id]
+    
+    # Add bot response to conversation history
+    rag_bot_response = generate_bot_response(messages_for_llm)
+    conversations[conversation_id].append(Message(role="assistant", content=rag_bot_response))
+    
+    return {"bot_response": rag_bot_response, "conversation_id": conversation_id, "owner": owner}
 
 # The user can just call model inference API to get a direct bot response w/ no RAG
 @app.get("/model-inference")
 def read_bot_response(user_input: str):
     bot_response = generate_bot_response(user_input)
     return {"bot_response": bot_response}
+
+# Endpoint to get conversation history
+@app.get("/conversation/{conversation_id}")
+def get_conversation(conversation_id: str):
+    if conversation_id not in conversations:
+        raise HTTPException(status_code=404, detail="Conversation not found")
+    return {"conversation": conversations[conversation_id]}
+
+# Endpoint to clear conversation history
+@app.delete("/conversation/{conversation_id}")
+def clear_conversation(conversation_id: str):
+    if conversation_id in conversations:
+        del conversations[conversation_id]
+    return {"message": "Conversation cleared"}
 
 
 if __name__ == "__main__":

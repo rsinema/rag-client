@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile
     container_name: react-client-web
     ports:
-      # port forwarding 80001 to 80
+      # port forwarding 8001 to 80
       - "8001:80"
     depends_on:
       - server

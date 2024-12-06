@@ -10,6 +10,7 @@ function App() {
   const [input, setInput] = useState("");
   const [currentUser, setCurrentUser] = useState("Brayden");
   const [isTyping, setIsTyping] = useState(false);
+  const [conversationId, setConversationId] = useState("");
 
   const handleSendMessage = async () => {
     if (input.trim() === "") return;
@@ -20,7 +21,10 @@ function App() {
 
     setIsTyping(true);
 
-    await triggerRAG(prompt, currentUser).then((response) => {
+    await triggerRAG(prompt, currentUser, conversationId).then((response) => {
+      if (response.conversation_id) {
+        setConversationId(response.conversation_id);
+      }
       setIsTyping(false);
       const { bot_response } = response;
       setMessages((prevMessages) => [
