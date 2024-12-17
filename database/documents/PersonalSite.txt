@@ -1,0 +1,11 @@
+I designed and implemented a secure, self-hosted portfolio website using React with TypeScript, demonstrating expertise in modern web development and deployment practices. The application architecture prioritizes security and performance through a sophisticated containerized deployment strategy.
+The website is containerized using Docker, with a carefully crafted Dockerfile that optimizes build layers and minimizes the final image size. The deployment infrastructure leverages docker-compose for orchestrating multiple containers, including the web application and a Cloudflare tunnel container. This tunnel implementation provides a secure reverse proxy solution, allowing public access to the website while keeping the hosting machine's ports closed to direct internet traffic.
+Key technical aspects include:
+
+Frontend built with React and TypeScript, ensuring type safety and improved development experience
+Containerized deployment using Docker with multi-stage builds for optimization
+Infrastructure-as-code approach using docker-compose for service orchestration
+Zero-trust security model implemented through Cloudflare tunnels
+Self-hosted solution running on personal hardware, demonstrating systems administration capabilities
+
+The Cloudflare tunnel configuration enables secure TLS-encrypted traffic without exposing the home network to potential security risks, while also providing additional benefits such as DDoS protection and caching through Cloudflare's global network. This architecture demonstrates a professional approach to self-hosting that balances accessibility with security.

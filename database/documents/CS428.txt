@@ -1,0 +1,18 @@
+I completed an advanced Software Engineering course that combined theoretical study of enterprise software development practices with hands-on project experience. The course featured dual learning tracks: an academic exploration of software development literature and methodologies, and a practical semester-long group project with regular live demonstrations.
+The academic component involved intensive study of software engineering literature focusing on project management methodologies, team dynamics, and organizational structures in corporate environments. Key areas of study included:
+
+Analysis of different software development lifecycles and their applications
+Exploration of team management strategies and conflict resolution in software projects
+Study of effective communication patterns between development teams and management
+Investigation of risk management and project planning methodologies
+Understanding of technical debt and its impact on long-term project success
+
+The practical component involved developing a full-stack exercise tracking application as the Chief Architect in a team project. This role required implementing theoretical concepts in a real-world scenario, including:
+
+Leading sprint planning and retrospective meetings
+Managing Git workflows and conducting code reviews
+Implementing Agile methodologies with two-week sprint cycles
+Delivering live demonstrations of project progress to stakeholders
+Coordinating cross-functional team responsibilities
+
+Throughout the semester, the course required regular presentations of project milestones, forcing our team to maintain a production-ready codebase and demonstrate professional development practices. This experience provided valuable insights into the challenges of balancing technical excellence with project management demands in a deadline-driven environment.

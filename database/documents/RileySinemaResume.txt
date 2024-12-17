@@ -1,0 +1,53 @@
+Riley Sinema
+(801) 319-9741 ∙ rileysinema@gmail.com ∙ rsinema@byu.edu ∙ linkedin.com/in/rileysinema/
+EDUCATION
+Brigham Young University Provo, UT
+Master of Science in Computer Science Sept 2024 - Present
+§ Researching calibration methods for probabilistic machine learning
+Bachelor of Science in Computer Science Sept 2020 – April 2024
+§ GPA 3.8
+§ BYU Academic Scholarship
+§ Dean’s List for College of Mathematical and Physical Sciences 2023
+LANGUAGES / TECHNOLOGIES
+Python, Pytorch, Pandas, Numpy, Hugging-face, LLMs, RAG, Computer Vision, C#, .NET, AzureDevOps, SQL,
+PostgreSQL, NoSQL, Redis, MongoDB, Docker, Kubernetes, Linux, Bash, Git, GitHub, React, TypeScript
+SKILLS
+§ Proficient understanding machine learning models, algorithms, and application
+§ Proficient understanding of data structures and algorithms
+§ Proficient in design patterns and concepts
+§ Able to work well in teams with other members on projects
+§ Can think creatively about possible project solutions
+PROJECTS
+§ Self-hosted personal portfolio website built with React TypeScript and dockerized
+§ Researched creating a new metric for more informative evaluation of model calibration
+§ Led a group of students to create a dockerized C# based web app to track personal exercise data
+§ Personal RAG chatbot that queries my personal professional and educational data to answer questions about me
+EXPERIENCE
+Marching Order May 2024-Aug 2024
+Software Engineer Remote
+§ Implemented critical components of the refactored architecture using modern design patterns, successfully migrating 20+ legacy
+features while maintaining backward compatibility
+§ Established automated testing protocols for refactored components, achieving 90% test coverage and reducing regression bugs
+by 75%
+Brigham Young University Department of Computer Science Jan 2024-Present
+Teaching Assistant for Database Design Provo, UT
+§ Provided comprehensive instruction and support to 80+ undergraduate students in database design principles, SQL query
+optimization, and NoSQL technologies, resulting in an 85% pass rate for the course and consistently positive student feedback
+§ Created engaging database design assignments and hands-on NoSQL labs that increased average student participation led to a
+90% assignment completion rate
+BYU Office of Information Technology Aug 2021-Dec 2023
+Network Installation Technician Provo, UT
+§ Led groups of student technicians to upgrade all network cables in the Lavell Edwards Stadium on BYU campus leading to a
+50% increase in necessary cabling
+§ Collaborated with other student technicians and members of other organizations to effectively plan and work on projects to
+improve project completion speed by 10%
+VOLUNTEER EXPERIENCE
+The Church of Jesus Christ Aug 2018-April 2020
+Full Time Missionary Leyte, Philippines
+§ Actively participate in Church service projects and
+§ Teach interested people about the teachings and doctrine of the Church of Jesus Christ
+ABILITIES - INTERESTS
+§ Proficient in Filipino and other Filipino dialects
+§ Interested in backend development, machine learning, data science and analytics
+§ Hobbies include film photography of landscapes and street photography, hiking and camping throughout Utah, skateboarding,
+snowboarding, and learning new technologies

@@ -1,31 +1,20 @@
-# Use the official PostgreSQL 17 image as the base image
-FROM postgres:17
+# Use the official Python image from the Docker Hub
+FROM python:3.12-slim
 
-# Install build dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    git \
-    postgresql-server-dev-17
+# Set the working directory in the container
+WORKDIR /app
 
-# Clone and install pgvector
-RUN git clone https://github.com/pgvector/pgvector.git && \
-    cd pgvector && \
-    make && \
-    make install
+# Copy the requirements file into the container
+COPY requirements.txt .
 
-# Clean up
-RUN apt-get remove -y build-essential git postgresql-server-dev-17 && \
-    apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/* /pgvector
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy initialization scripts
-COPY ./init.sql /docker-entrypoint-initdb.d/
+# Copy the rest of the application code into the container
+COPY . .
 
-# Verify init.sql is copied
-RUN ls -la /docker-entrypoint-initdb.d/
+# Expose the port that the app runs on
+EXPOSE 8000
 
-# Expose the PostgreSQL port
-EXPOSE 5432
-
-# Set the default command to run when starting the container
-CMD ["postgres"]
+# Command to run the application
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]

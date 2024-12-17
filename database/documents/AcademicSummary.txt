@@ -1,0 +1,155 @@
+STUDENT INFORMATION
+    NAME               :  Sinema, Riley Jacob               
+    BYU ID             :  07-790-7763                       
+    BIRTHDATE          :  Aug 25 1999                       
+
+    DEPARTMENT         :  Computer Science                  
+    MASTERS MAJOR      :  Computer Science                        
+    DOCTORAL MAJOR     :  Computer Science                        
+--------------------------------------------------------------
+DEGREES AWARDED - BRIGHAM YOUNG UNIVERSITY
+  DEGREE               :  BS                                
+    DATE RECEIVED      :  Apr 2024                          
+    DEPARTMENT         :  Computer Science                  
+    MAJOR              :  Computer Science                        
+--------------------------------------------------------------
+BYU COURSE WORK
+  TEACH CRS   SEC   H     COURSE DESCRIPTION               SEM   GRD  
+  AREA  NO.   NO.                                          HRS   
+ 
+
+
+Fall Semester 2020
+  BIO   100   025         Principles of Biology            3.00  A    
+  C S   142   003         Intro to Computer Programming    3.00  A    
+  MATH  112   019         Calculus 1                       4.00  A    
+  REL A 275   006         Tchgs & Doctrine of B of M       2.00  A    
+ SEM HR ERN  12.00  HR GRD   12.00  GPA  4.00
+ 
+
+
+Winter Semester 2021
+  C S   235   001         Data Structures                  3.00  A    
+  MATH  113   012         Calculus 2                       4.00  A-   
+  PHSCS 121   005         Intro to Newtonian Mechanics     3.00  A-   
+  REL A 250   019         Christ & the Everlstng Gospel    2.00  A    
+  WRTG  150   017         Writing & Rhetoric               3.00  A    
+ SEM HR ERN  15.00  HR GRD   15.00  GPA  3.86
+ 
+
+
+Fall Semester 2021
+  A HTG 100   053         American Heritage                3.00  B+   
+  C S   224   003         Computer Systems                 3.00  A    
+  CEBU  330   001         Adv Lang & Cult: Cebuano         3.00  A    
+  REL C 200   033         The Eternal Family               2.00  B    
+  STAT  121   001         Principles of Statistics         3.00  A    
+ SEM HR ERN  14.00  HR GRD   14.00  GPA  3.73
+ 
+
+
+Winter Semester 2022
+  C S   236   003         Discrete Structure               3.00  B    
+  IHUM  201   010         Western Humanities 1             3.00  B+   
+  MATH  213   009         Elementary Linear Algebra        2.00  B+   
+  MATH  215   001         Computational Linear Algebra     1.00  A    
+  PWS   103   002         Residential Landscape Design     3.00  A-   
+  REL C 225   024         Foundations of the Restoration   2.00  A-   
+ SEM HR ERN  14.00  HR GRD   14.00  GPA  3.46
+ 
+
+
+Fall Semester 2022
+  C S   240   004         Adv Programming Concepts         4.00  A    
+  C S   252   001         Intro to Computational Theory    3.00  B    
+  IHUM  202   003         Western Humanities 2             3.00  B    
+  REL C 342   003         Pioneers & Persecution 1846-99   2.00  A-   
+  WRTG  316   003         Technical Communication          3.00  A    
+ SEM HR ERN  15.00  HR GRD   15.00  GPA  3.56
+ 
+
+
+Winter Semester 2023
+  C S   180   001         Intro to Data Science            3.00  A    
+  C S   260   001         Web Programming                  3.00  A    
+  C S   312   001         Algorithm Design & Analysis      3.00  A    
+  C S   330   001         Concepts of Programng Lang       3.00  A    
+  REL A 121   001         The Book of Mormon               2.00  A    
+ SEM HR ERN  14.00  HR GRD   14.00  GPA  4.00
+ 
+
+
+Fall Semester 2023
+  C S   201R  001         Topics in Computer Science       3.00  A    
+  C S   324   002         Systems Programming              3.00  A    
+  C S   393   001         Adv Algorithms & Probl Solving   3.00  A    
+  C S   404   001         Ethics & Computers in Society    2.00  A    
+  C S   452   002         Database Modeling Concepts       3.00  A    
+ SEM HR ERN  14.00  HR GRD   14.00  GPA  4.00
+ 
+
+
+Winter Semester 2024
+  C S   340   002         Software Design                  3.00  A    
+  C S   450   001         Computer Vision                  3.00  A    
+  C S   465   001         Computer Security                3.00  A    
+  C S   474   002         Deep Learning                    3.00  A    
+  REL C 357   002         Survey of Judaism and Islam      2.00  A    
+ SEM HR ERN  14.00  HR GRD   14.00  GPA  4.00
+ 
+
+
+BYU DEPARTMENTAL EXAMS
+  CEBU  101   Fall 2021   First-Year Cebuano               4.00  A    
+  CEBU  102   Fall 2021   First-Year Cebuano               4.00  A    
+  CEBU  201   Fall 2021   Second-Year Cebuano              4.00  A    
+  CEBU  202   Fall 2021   Second-Year Cebuano              4.00  A    
+ SEM HR ERN  16.00  HR GRD   16.00  GPA  4.00
+ 
+ENTRANCE EXAMS
+    ACT          02/2017  COMP 32
+
+--------------------------------------------------------------
+CURRENT ENROLLMENT
+ 
+
+
+Fall Semester 2024
+  C S   428   001         Software Engineering             3.00       
+  C S   460   001         Comp Comms & Networking          3.00       
+  C S   501R  003         Adv Topics in Computer Sci       3.00       
+
+--------------------------------------------------------------
+FUTURE ENROLLMENT
+ 
+
+
+Winter Semester 2025
+  C S   401R  002         Topics in Computer Science       3.00       
+  C S   673   002         Computational Creativity         3.00       
+  C S   677   001         Bayesian Methods in C S          3.00       
+
+--------------------------------------------------------------
+BYU GPA SUMMARY
+ 
+ BYU Cumulative HR ERN 128.00  HR GRD  128.00  GPA  3.84
+ Undergraduate GPA: 3.84
+ Computer Science (MS)  GPA: 0.00
+ Computer Science (PHD)  GPA: 0.00
+--------------------------------------------------------------
+
+TRANSFER CREDITS RECEIVED
+ 
+
+
+Utah Valley University (UT)  Attended from 2017 to 2017                                                       
+   YRTRM    COURSE      COURSE DESCRIPTION            HRS   GRD   ACCEPT  EQUIV     
+   20175    FIN    1060 PERSONAL FINANCE              3.00  A     Yes     MATH 102      
+   20175    POLS   1100 AMERICAN NATIONAL GOVERNMENT  3.00  A     Yes     POLI 110      
+ TRN HR ERN   6.00  HR GRD    6.00  GPA  4.00
+ 
+
+ TRN HR ERN   6.00  HR GRD    6.00  
+--------------------------------------------------------------
+
+ TOT HR ERN 134.00  HR GRD  134.00  HR ATT  134.00  GPA  3.85

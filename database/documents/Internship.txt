@@ -1,0 +1,29 @@
+As a Software Engineer intern, I contributed to a significant modernization effort of a mission-critical web application that manages graduation ceremonies for educational institutions. The project centered around a major version upgrade from .NET Framework 4.7.2 to .NET 8, requiring extensive refactoring and reimplementation of core functionality.
+Working within an Azure cloud infrastructure and using Azure DevOps for CI/CD, I played a key role in modernizing the graduate-facing components of the application. My responsibilities included:
+
+Refactoring legacy code to implement modern .NET patterns and practices
+Converting WebForms pages to Razor Pages and API endpoints
+Implementing clean architecture principles in the new codebase
+Migrating from traditional SQL queries to Entity Framework Core
+Writing comprehensive unit tests for the new implementations
+Collaborating with the DevOps team to update deployment pipelines
+
+The graduation management system handles critical workflows including:
+
+Graduate information collection and validation
+Ceremony scheduling and management
+Real-time updates during ceremonies
+Integration with various school information systems
+Digital asset management for graduation materials
+
+One of my significant contributions was redesigning the graduate portal interface, where I:
+
+Implemented modern authentication patterns using ASP.NET Core Identity
+Created new API endpoints following RESTful principles
+Developed responsive UI components using Razor Pages and modern CSS
+Implemented proper error handling and logging patterns
+Integrated with Azure Blob Storage for file management
+Created database migration scripts for seamless data transition
+
+The project required careful consideration of backward compatibility while modernizing the codebase, as the application needed to remain functional throughout the upgrade process. I participated in daily stand-ups, sprint planning, and code reviews, gaining valuable experience in enterprise software development practices and Agile methodologies in a professional setting.
+Working with production systems handling real graduation ceremonies required strict attention to detail and thorough testing procedures, as any errors could impact actual graduation events. This experience provided valuable insight into maintaining and upgrading large-scale enterprise applications while ensuring business continuity.

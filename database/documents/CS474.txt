@@ -1,0 +1,18 @@
+I completed a comprehensive Deep Learning course that covered multiple domains of neural network architectures and applications, with an emphasis on from-scratch implementation of each model type. The course structure required deep understanding of the mathematical foundations and architectural details of each model, as we were tasked with building implementations without relying on high-level APIs.
+Key projects and implementations included:
+
+Text Generation Transformer: Developed a character-level transformer model implementing self-attention mechanisms, positional encodings, and masked training for autoregressive text generation. The implementation required careful consideration of memory efficiency and gradient flow through the attention layers.
+Proximal Policy Optimization (PPO) for Reinforcement Learning: Built a complete PPO algorithm implementation, including policy and value networks, advantage estimation, and the clipped objective function. This project required careful implementation of the policy gradient algorithm and proper handling of the exploration-exploitation trade-off.
+U-Net Architecture for Image Segmentation: Implemented the full U-Net architecture with skip connections, managing the contracting and expanding paths while maintaining feature map alignment. This project demonstrated understanding of conv-deconv architectures and their applications in dense prediction tasks.
+Generative Adversarial Network (GAN): Created a GAN implementation for MNIST digit generation, carefully balancing the training of generator and discriminator networks. This project required addressing mode collapse and training stability issues common in GAN architectures.
+Image Colorization Network (Personal Project): Designed and implemented a custom neural network architecture for converting grayscale images to color, incorporating both local and global features to ensure coherent colorization. This project required understanding of color spaces, dealing with the inherent ambiguity in colorization, and implementing appropriate loss functions for color prediction.
+
+Each implementation required writing all core components from fundamental building blocks, including:
+
+Forward and backward propagation mechanisms
+Custom loss function implementations
+Learning rate scheduling and optimization algorithms
+Data preprocessing and augmentation pipelines
+Training loop management and convergence monitoring
+
+The course provided invaluable experience in understanding the intricacies of various deep learning architectures through hands-on implementation, reinforcing theoretical concepts with practical engineering challenges.
