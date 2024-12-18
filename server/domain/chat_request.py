@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 class ChatRequest(BaseModel):
-    message: str
-    chat_id: str
+    user_input: str
+    conversation_id: str
     timestamp: str

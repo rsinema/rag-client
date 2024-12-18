@@ -13,7 +13,7 @@ class PromptConfig:
     system_prompt: str
     max_context_length: int = 2048
     response_max_length: int = 256
-    temperature: float = 0.8
+    temperature: float = 0.9
 
 class RAGProcessor:
     def __init__(
@@ -78,12 +78,12 @@ class RAGProcessor:
         print(f"Response generated successfully:\n {response}")
     
         # Extract just the assistant's first response
-        assistant_response = response.split("### Assistant:\n")[-1]
+        assistant_response = response.split("### Assistant:\n")[1]
 
         print(f"Assistant response: {assistant_response}")
         
         # Look for common end markers and take everything before them
-        end_markers = ["END", "### END", "### User:", "### System:", "---", "Let me know"]
+        end_markers = ["### END", "END", "###", "### User:", "### System:", "---", "Let me know"]
         for marker in end_markers:
             if marker in assistant_response:
                 assistant_response = assistant_response.split(marker)[0]
@@ -145,10 +145,14 @@ def main():
     system_prompt = os.getenv('SYSTEM_PROMPT', """You are a helpful AI assistant for me, Riley. I am a 25 year old male that has a Bachelor degree in Computer Science, and I am currently working on a Master degree in Computer Science. Please use the provided context to answer 
     questions accurately and concisely. Focus on techinical aspects of my skills, and please try to make me sound competent and a good recruit. If you're unsure or the context doesn't contain 
     relevant information, say so.""")
+
+    temp = os.getenv('MODEL_TEMPERATURE', 0.9)
+    temp = float(temp)
     
     # Initialize components
     prompt_config = PromptConfig(
         system_prompt=system_prompt,
+        temperature=temp
     )
     
     redis_client = redis.StrictRedis(

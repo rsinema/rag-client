@@ -8,7 +8,6 @@ function App() {
     []
   );
   const [input, setInput] = useState("");
-  const [currentUser, setCurrentUser] = useState("Brayden");
   const [isTyping, setIsTyping] = useState(false);
   const [conversationId, setConversationId] = useState("");
 
@@ -21,7 +20,9 @@ function App() {
 
     setIsTyping(true);
 
-    await triggerRAG(prompt, currentUser, conversationId).then((response) => {
+    console.log("handleSendMessage -> prompt", prompt);
+
+    await triggerRAG(prompt, conversationId).then((response) => {
       if (response.conversation_id) {
         setConversationId(response.conversation_id);
       }
@@ -42,32 +43,13 @@ function App() {
         <div className="w-full flex flex-col items-center py-4">
           <div className="flex justify-center items-center text-white w-[90%] relative">
             <h1 className="text-4xl">NLP RAG Project</h1>
-            <div className="absolute right-0 flex space-x-2">
-              <button
-                onClick={() => setCurrentUser("Brayden")}
-                className={`px-2 py-1 text-sm rounded-full ${
-                  currentUser === "Brayden"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-600 text-gray-300"
-                }`}
-              >
-                Brayden
-              </button>
-              <button
-                onClick={() => setCurrentUser("Riley")}
-                className={`px-2 py-1 text-sm rounded-full ${
-                  currentUser === "Riley"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-600 text-gray-300"
-                }`}
-              >
-                Riley
-              </button>
-            </div>
           </div>
         </div>
 
         {/* Message Display Area (just below the title) */}
+        {
+          // TODO see if messages can be displayed using markdown
+        }
         <div className="flex flex-col items-center w-[90%] max-h-[75vh] overflow-y-auto p-4 mt-4">
           {messages.map((message, index) => (
             <div
@@ -77,7 +59,7 @@ function App() {
               } mb-2 w-full`}
             >
               <div
-                className={`max-w-xs px-4 py-2 rounded-lg ${
+                className={`max-w-md px-4 py-2 rounded-lg ${
                   message.role === "user"
                     ? "bg-blue-500 text-white"
                     : "bg-gray-600 text-white"

@@ -4,6 +4,7 @@ from domain.chat_request import ChatRequest
 from domain.chat_response import ChatResponse
 from domain.redis_chat_dto import RedisChatDTO
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from service.redis_service import RedisService
 from dotenv import load_dotenv
 import uvicorn
@@ -13,6 +14,13 @@ import json
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace with your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # {"bot_response": rag_bot_response, "conversation_id": conversation_id, "owner": owner}
 def format_context(retrieved_docs):
@@ -31,16 +39,16 @@ def format_context(retrieved_docs):
     
     return final_context
 
-@app.get("/chat", response_model=ChatResponse)  # Better to use response_model parameter
+@app.post("/chat", response_model=ChatResponse)  # Better to use response_model parameter
 async def chat(rqst: ChatRequest) -> ChatResponse:
     vector_db_url_endpoint = os.getenv("VECTOR_DB_API_URL")
 
     service = RedisService()
     chat_key = uuid.uuid4().hex
     # retrieve the information from the database and return it
-    response = requests.get(f"{vector_db_url_endpoint}/retrieve", params={"query": rqst.message})
+    response = requests.get(f"{vector_db_url_endpoint}/retrieve", params={"query": rqst.user_input})
     response = response.json()
-    chat_dto = RedisChatDTO(chat_id=chat_key, message=rqst.message, context=format_context(response))
+    chat_dto = RedisChatDTO(chat_id=chat_key, message=rqst.user_input, context=format_context(response))
     chat_dto_bytes = json.dumps(chat_dto.__dict__).encode('utf-8')
     service.push_queue(chat_dto_bytes)
     response_text = service.poll_db(chat_key, 600)

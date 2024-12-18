@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: ankane/pgvector:latest # This image includes the vector extension
+    image: ankane/pgvector:latest
     container_name: rag_db
     environment:
       POSTGRES_USER: rag_user
@@ -36,7 +36,6 @@ services:
       - postgres
       - redis
       - context-server
-      # - model
     env_file:
       - ./server/.env
 
@@ -49,14 +48,6 @@ services:
       - "5117:8000"
     env_file:
       - ./database/.env
-
-  # model:
-  #   build:
-  #     context: ./model
-  #     dockerfile: Dockerfile
-  #   container_name: rag_model
-  #   env_file:
-  #     - ./model/.env
 
 volumes:
   rag_data:

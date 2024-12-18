@@ -1,4 +1,4 @@
-As a Software Engineer intern, I contributed to a significant modernization effort of a mission-critical web application that manages graduation ceremonies for educational institutions. The project centered around a major version upgrade from .NET Framework 4.7.2 to .NET 8, requiring extensive refactoring and reimplementation of core functionality.
+As a Software Engineer intern working at MarchingOrder, I contributed to a significant modernization effort of a mission-critical web application that manages graduation ceremonies for educational institutions. The project centered around a major version upgrade from .NET Framework 4.7.2 to .NET 8, requiring extensive refactoring and reimplementation of core functionality.
 Working within an Azure cloud infrastructure and using Azure DevOps for CI/CD, I played a key role in modernizing the graduate-facing components of the application. My responsibilities included:
 
 Refactoring legacy code to implement modern .NET patterns and practices
