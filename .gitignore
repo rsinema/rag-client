@@ -26,6 +26,3 @@ dist-ssr
 .env
 __pycache__/
 *.pdf
-*.png
-
-!RAG-app.drawio.png
